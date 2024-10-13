@@ -33,6 +33,10 @@ namespace OfficeRoomie.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("created_at")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -46,6 +50,10 @@ namespace OfficeRoomie.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("senha")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("updated_at")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -63,6 +71,10 @@ namespace OfficeRoomie.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("cpf")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("created_at")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -103,6 +115,10 @@ namespace OfficeRoomie.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("updated_at")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

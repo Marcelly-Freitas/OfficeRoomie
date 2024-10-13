@@ -1,0 +1,61 @@
+﻿@model IEnumerable<OfficeRoomie.Models.Administrador>
+
+@{
+    ViewData["Title"] = "Administradores";
+}
+
+<h1>Administradores</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Novo Administrador</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.permissoes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.permissoes)
+            </td>
+            
+            <td>
+                <a class="btn btn-warning"  asp-action="Details" asp-route-id="@item.id">Visualizar</a> |                
+                <a class="btn btn-primary"  asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

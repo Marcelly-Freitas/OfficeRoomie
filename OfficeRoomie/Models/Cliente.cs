@@ -14,7 +14,6 @@ namespace OfficeRoomie.Models
         public string nome { get; set; }
 
         [Required(ErrorMessage = "Preenchimento do Campo 'email' Obrigatório!")]
-        [RegularExpression(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", ErrorMessage = "Formato de email inválido!")]
         public string email { get; set; }
 
         [Required(ErrorMessage = "Preenchimento do Campo 'cpf' Obrigatório!")]
@@ -42,5 +41,9 @@ namespace OfficeRoomie.Models
 
         [Required(ErrorMessage = "Preenchimento do Campo 'endereco_pais' Obrigatório!")]
         public string endereco_pais { get; set; }
+
+        public string created_at { get; set; } = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}";
+
+        public string updated_at { get; set; } = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}";
     }
 }

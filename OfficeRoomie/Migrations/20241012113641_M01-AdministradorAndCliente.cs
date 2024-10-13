@@ -5,7 +5,7 @@
 namespace OfficeRoomie.Migrations
 {
     /// <inheritdoc />
-    public partial class M01AddClientesAndAdministradores : Migration
+    public partial class M01AdministradorAndCliente : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,9 @@ namespace OfficeRoomie.Migrations
                     email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     cpf = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     senha = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    permissoes = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    permissoes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    created_at = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    updated_at = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,7 +45,9 @@ namespace OfficeRoomie.Migrations
                     endereco_bairro = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     endereco_cidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     endereco_estado = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    endereco_pais = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    endereco_pais = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    created_at = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    updated_at = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
