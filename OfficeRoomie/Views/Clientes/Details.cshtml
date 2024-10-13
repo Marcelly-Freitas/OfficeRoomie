@@ -1,10 +1,10 @@
 ﻿@model OfficeRoomie.Models.Cliente
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do Cliente";
 }
 
-<h1>Details</h1>
+<h1>Detalhes do Cliente</h1>
 
 <div>
     <h4>Cliente</h4>
@@ -76,21 +76,9 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.endereco_pais)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.created_at)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.created_at)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.updated_at)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.updated_at)
-        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.id">Editar</a> |
+    <a class="btn btn-link" asp-action="Index">Voltar para lista</a>
 </div>

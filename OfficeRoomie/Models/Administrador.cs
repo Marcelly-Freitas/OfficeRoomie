@@ -10,23 +10,27 @@ namespace OfficeRoomie.Models
         public int id { get; set; }
 
         [Required(ErrorMessage = "Preenchimento do Campo 'nome' Obrigatório!")]
+        [Display(Name="Nome")]
         public string nome { get; set; }
 
         [Required(ErrorMessage = "Preenchimento do Campo 'email' Obrigatório!")]
+        [Display(Name="E-mail")]
         public string email { get; set; }
 
         [Required(ErrorMessage = "Preenchimento do Campo 'cpf' Obrigatório!")]
+        [Display(Name="CPF")]
         public string cpf { get; set; }
 
         [Required(ErrorMessage = "Preenchimento do Campo 'senha' Obrigatório!")]
+        [Display(Name="Senha")]
         public string senha { get; set; }
 
         [Required(ErrorMessage = "Preenchimento do Campo 'permissoes' Obrigatório!")]
-        [Display(Name ="permissões")]
+        [Display(Name ="Permissões")]
         public string permissoes { get; set; }
 
-        public string created_at { get; set; } = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}";
+        public string? created_at { get; set; } = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}";
 
-        public string updated_at { get; set; } = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}";
+        public string? updated_at { get; set; } = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss}";
     }
 }

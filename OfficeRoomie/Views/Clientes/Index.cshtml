@@ -1,57 +1,27 @@
 ﻿@model IEnumerable<OfficeRoomie.Models.Cliente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Clientes";
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between align-items-center gap-4 mb-4">
+    <h1>Clientes</h1>
+    <a class="btn btn-primary" asp-action="Create">Novo Cliente</a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th width="25%">
                 @Html.DisplayNameFor(model => model.nome)
             </th>
-            <th>
+            <th width="25%">
                 @Html.DisplayNameFor(model => model.email)
             </th>
-            <th>
+            <th width="25%">
                 @Html.DisplayNameFor(model => model.cpf)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco_logradouro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco_numero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco_complemento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco_cep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco_bairro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco_cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco_estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.endereco_pais)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.created_at)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.updated_at)
-            </th>
-            <th></th>
+            <th width="25%"></th>
         </tr>
     </thead>
     <tbody>
@@ -67,39 +37,15 @@
                 @Html.DisplayFor(modelItem => item.cpf)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.endereco_logradouro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endereco_numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endereco_complemento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endereco_cep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endereco_bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endereco_cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endereco_estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endereco_pais)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.created_at)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.updated_at)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id">
+                    <span class="iconify" data-icon="ic:baseline-edit" data-inline="false"></span>
+                </a> |
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.id">
+                    <span class="iconify" data-icon="ic:baseline-visibility" data-inline="false"></span>
+                </a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">
+                    <span class="iconify" data-icon="ic:baseline-delete" data-inline="false"></span>
+                </a>
             </td>
         </tr>
 }

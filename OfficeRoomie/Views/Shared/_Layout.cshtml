@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,46 +7,70 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OfficeRoomie.styles.css" asp-append-version="true" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"></script>
+    <style>
+        /* Fixar o sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            padding-top: 1rem;
+        }
+
+        /* Ajustar o conteúdo principal para não sobrepor a sidebar */
+        .main-content {
+            margin-left: 250px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">OfficeRoomie</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Administradores" asp-action="Index">Administradores</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
-                        </li>
-                    </ul>
+<body class="mb-0">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <h3 class="mb-4 px-3 text-uppercase">OfficeRoomie</h3>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-area="" asp-controller="Administradores" asp-action="Index">Administradores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Content Area -->
+    <div class="main-content">
+        <header>
+            <nav class="navbar navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <span class="navbar-brand">Dashboard</span>
+                </div>
+            </nav>
+        </header>
+
+        <main role="main" class="container-fluid p-4 flex-grow-1">
+            <div class="h-100">
+                <div>
+                    @RenderBody()
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
         </main>
+
+        <footer class="border-top footer text-muted p-3 text-center bg-light">
+            <div class="container">
+                &copy; 2024 - OfficeRoomie
+            </div>
+        </footer>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - OfficeRoomie - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

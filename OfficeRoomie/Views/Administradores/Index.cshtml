@@ -4,11 +4,11 @@
     ViewData["Title"] = "Administradores";
 }
 
-<h1>Administradores</h1>
-
-<p>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Administradores</h1>
     <a class="btn btn-primary" asp-action="Create">Novo Administrador</a>
-</p>
+</div>
+
 
 <table class="table">
     <thead>
@@ -51,9 +51,15 @@
             </td>
             
             <td>
-                <a class="btn btn-warning"  asp-action="Details" asp-route-id="@item.id">Visualizar</a> |                
-                <a class="btn btn-primary"  asp-action="Edit" asp-route-id="@item.id">Editar</a> |
-                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.id">
+                    <span class="iconify" data-icon="ic:baseline-edit" data-inline="false"></span>
+                </a> |
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.id">
+                    <span class="iconify" data-icon="ic:baseline-visibility" data-inline="false"></span>
+                </a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">
+                    <span class="iconify" data-icon="ic:baseline-delete" data-inline="false"></span>
+                </a>
             </td>
         </tr>
 }
