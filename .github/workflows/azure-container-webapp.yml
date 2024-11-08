@@ -34,19 +34,19 @@ jobs:
           tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_247fab01a3f2412ea668c623d2533f71 }}/appsvc/staticsite:${{ github.sha }}
           file: ./Dockerfile
 
-    deploy:
-      runs-on: ubuntu-latest
-      needs: build
-      environment:
-        name: 'Production'
-        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-      steps:
-        - name: Deploy to Azure Web App
-          id: deploy-to-webapp
-          uses: azure/webapps-deploy@v2
-          with:
-            app-name: 'Officeroomie'
-            slot-name: 'Production'
-            publish-profile: ${{ secrets.AzureAppService_PublishProfile_45141ea4cede46c28b0a75a972c8d071 }}
-            images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_247fab01a3f2412ea668c623d2533f71 }}/appsvc/staticsite:${{ github.sha }}'
+    steps:
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'Officeroomie'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_45141ea4cede46c28b0a75a972c8d071 }}
+          images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_247fab01a3f2412ea668c623d2533f71 }}/appsvc/staticsite:${{ github.sha }}'
