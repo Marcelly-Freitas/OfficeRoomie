@@ -49,4 +49,4 @@ jobs:
           app-name: 'Officeroomie'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_1db0216d199e4d20b92141d14785ef9c }}
-            images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_3335afb2dad4486bb745ae6023721abc }}/appsvc/staticsite:${{ github.sha }}'
+          images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_3335afb2dad4486bb745ae6023721abc }}/appsvc/staticsite:${{ github.sha }}'
