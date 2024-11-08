@@ -23,8 +23,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: https://mcr.microsoft.com/
-          username: ${{ secrets.AzureAppService_ContainerUsername_3335afb2dad4486bb745ae6023721abc }}
-          password: ${{ secrets.AzureAppService_ContainerPassword_24a60e49ebcc440baabffb21b4e283c2 }}
+          username: ${{ secrets.AzureAppService_ContainerUsername }}
+          password: ${{ secrets.AzureAppService_ContainerPassword }}
 
       - name: Build and push container image to registry
         uses: docker/build-push-action@v3
@@ -34,19 +34,19 @@ jobs:
           tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_3335afb2dad4486bb745ae6023721abc }}/appsvc/staticsite:${{ github.sha }}
           file: ./Dockerfile
 
-    deploy:
-      runs-on: ubuntu-latest
-      needs: build
-      environment:
-        name: 'Production'
-        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-      steps:
-        - name: Deploy to Azure Web App
-          id: deploy-to-webapp
-          uses: azure/webapps-deploy@v2
-          with:
-            app-name: 'Officeroomie'
-            slot-name: 'Production'
-            publish-profile: ${{ secrets.AzureAppService_PublishProfile_1db0216d199e4d20b92141d14785ef9c }}
+    steps:
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'Officeroomie'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_1db0216d199e4d20b92141d14785ef9c }}
             images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_3335afb2dad4486bb745ae6023721abc }}/appsvc/staticsite:${{ github.sha }}'
