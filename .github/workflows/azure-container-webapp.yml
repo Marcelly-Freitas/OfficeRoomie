@@ -22,7 +22,7 @@ jobs:
       - name: Log in to container registry
         uses: docker/login-action@v2
         with:
-          registry: https://mcr.microsoft.com/
+          registry: https://marcellypuc.azurecr.io/
           username: ${{ secrets.AzureAppService_ContainerUsername_5c16830544ef4ea58a297c142c358663 }}
           password: ${{ secrets.AzureAppService_ContainerPassword_38a60c1c754e4311a7cc1173b470e7f7 }}
 
