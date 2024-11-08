@@ -1,0 +1,52 @@
+﻿@model OfficeRoomie.Models.Cartao
+
+@{
+    ViewData["Title"] = "Novo Cartão";
+}
+
+<h1>Novo Cartão</h1>
+
+<h4>Cartão</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" class="w-100 flex-column d-flex gap-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row gx-4 gy-4">
+                <div class="form-group col-3">
+                    <label asp-for="numeroDoCartao" class="control-label"></label>
+                    <input asp-for="numeroDoCartao" class="form-control" />
+                    <span asp-validation-for="numeroDoCartao" class="text-danger"></span>
+                </div>
+                <div class="form-group col-3">
+                    <label asp-for="nomeDoTitular" class="control-label"></label>
+                    <input asp-for="nomeDoTitular" class="form-control" />
+                    <span asp-validation-for="nomeDoTitular" class="text-danger"></span>
+                </div>
+                <div class="form-group col-3">
+                    <label asp-for="validade" class="control-label"></label>
+                    <input asp-for="validade" class="form-control" type="month" />
+                    <span asp-validation-for="validade" class="text-danger"></span>
+                </div>
+                <div class="form-group col-3">
+                    <label asp-for="cvv" class="control-label"></label>
+                    <input asp-for="cvv" class="form-control" type="number" min="0" max="999" />
+                    <span asp-validation-for="cvv" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-12" style="display: flex; align-items: center; justify-content: center">
+                <a class="btn btn-link" style="width: 10%" asp-action="Index">Voltar para lista</a>
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
