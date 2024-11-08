@@ -23,15 +23,15 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: https://mcr.microsoft.com/
-          username: 
-          password: 
+          username: ${{ secrets.AzureAppService_ContainerUsername_fb851d7ecf68480dabf475eae8ab12cd }}
+          password: ${{ secrets.AzureAppService_ContainerPassword_15c4110d574741d78a9892158b2b7b66 }}
 
       - name: Build and push container image to registry
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_247fab01a3f2412ea668c623d2533f71 }}/appsvc/staticsite:${{ github.sha }}
+          tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_fb851d7ecf68480dabf475eae8ab12cd }}/appsvc/staticsite:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -48,5 +48,5 @@ jobs:
         with:
           app-name: 'Officeroomie'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_45141ea4cede46c28b0a75a972c8d071 }}
-          images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_247fab01a3f2412ea668c623d2533f71 }}/appsvc/staticsite:${{ github.sha }}'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_103a0edf829d417cb17f8d9be02a23e3 }}
+          images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_fb851d7ecf68480dabf475eae8ab12cd }}/appsvc/staticsite:${{ github.sha }}'
