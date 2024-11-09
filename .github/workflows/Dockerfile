@@ -1,6 +1,6 @@
 # Etapa 1: Build da aplicação
 # Use uma imagem base do SDK do .NET para compilar o aplicativo
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
 # Defina o diretório de trabalho no contêiner
 WORKDIR /app
