@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: marcellypuc.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_9cd3f7ab621849d88fd1764067f4e6f1 }}/appsvc/staticsite:${{ github.sha }}
-        file: ./Dockerfile
+        file: ../../Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
